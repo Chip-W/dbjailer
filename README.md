@@ -1,10 +1,15 @@
-# DBJailer
+## DBJailer
 This edit includes the original dbjailer that works with Mission Row.  My edits include dbjailerss and dbjailerpb.  These extra jails use an included ymap located under the Bolingbrook prison.  My edits allow you to send someone to jail from either the Sandy Shores Sheriff's Office or the Paleto Bay Sheriff's Office and have the prisoner return to the station they were sent from.
-<br><br>
-# Original Credits
+<br>
+## Original Credits
 The original script was created by Albo1125.  Then edited to be database driven to stop combat loggers by SSPU1W as well as include a fine system and pNotify.  The original script by Albo1125 can be found here - https://forum.fivem.net/t/release-fx-jailer-1-1-0-0/41963 and the modified version of his by SSPU1W can be found here- https://forum.fivem.net/t/release-esx-database-jail-script-with-pnotify-no-more-combat-logging/69556
 <br>
-# Installation
+## Required Dependencies
+>[pNotify](https://forum.fivem.net/t/release-pnotify-in-game-js-notifications-using-noty/20659)
+<br>
+
+## Installation
+
 There are four resources here and all four must be started separately.
 - copy dbjailer, dbjailerss, dbjailerpb, and jail to your **resources** folder
 - In your **server.cfg** add:
@@ -14,7 +19,7 @@ There are four resources here and all four must be started separately.
 - start jail
 - import the **jail.sql** to your database
 
-# Usage
+## Usage
 
 When in the city:
 
@@ -39,7 +44,7 @@ In Paleto Bay:
 
 It is very importand you do your time in **MINUTES** and not seconds.  If you put in 120 for the time, you will jail them for 120 minutes when you intended to only put them in jail for 2 minutes.<br>
 
-**NOTE**
+**/NOTE**
 
 <br>
 
@@ -57,6 +62,6 @@ Sandy Shores and Paleto Bay both use the jail ymap under Bolingbrook Prison.
 
 <br>
 
-# Known Issue
+## Known Issue
 
 You will need to clear out your **jail** table in your database daily.  After your players get out of jail, they will respawn at the place they were sent to jail.  However, when they leave the server and come back or after being revived from a death, they respawn at Mission Row.  This is an issue with the original dbjailer and has not been fixed yet. 
