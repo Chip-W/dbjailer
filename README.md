@@ -42,7 +42,7 @@ In Paleto Bay:
 
 **NOTE**<br>
 
-It is very importand you do your time in **MINUTES** and not seconds.  If you put in 120 for the time, you will jail them for 120 minutes when you intended to only put them in jail for 2 minutes.<br>
+It is very important you do your time in **MINUTES** and not seconds.  If you put in 120 for the time, you will jail them for 120 minutes when you intended to only put them in jail for 2 minutes.<br>
 
 **/NOTE**
 
