@@ -150,7 +150,7 @@ end)
 RegisterServerEvent("JailCheck")
 AddEventHandler("JailCheck", function()
 	local player = source
-print("SOURCE = "..source)
+--print("SOURCE = "..source)
 --print("PLAYER = "..player)
 	local identifier = GetPlayerIdentifiers(source)[1]
 	MySQL.Async.fetchAll('SELECT * FROM jail WHERE identifier=@id', {['@id'] = identifier}, function(gotInfo)
@@ -174,10 +174,11 @@ print("TIME REMAINING="..newTime)
         if newTime == 0 then
             local player = source
 	    local identifier = GetPlayerIdentifiers(player)[1]
-	    local newID = "RELEASED=" .. identifier
-		local tempo = 0
-	    MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
-	    MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	    --local newID = "RELEASED=" .. identifier
+		--local tempo = 0
+	    --MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
+	    --MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	    MySQL.Async.execute("DELETE FROM jail WHERE identifier=@identifier", {['@identifier'] = identifier})
         end
 end)
 
@@ -186,12 +187,13 @@ AddEventHandler("JailRelease", function(source)
 print("PLAYER "..source.."IS NOW RELEASED")
 	local player = source
 	local identifier = GetPlayerIdentifiers(player)[1]
-	local newID = "RELEASED=" .. identifier
-	local tempo = 0
-	MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
-	MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	--local newID = "RELEASED=" .. identifier
+	--local tempo = 0
+	--MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
+	--MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	MySQL.Async.execute("DELETE FROM jail WHERE identifier=@identifier", {['@identifier'] = identifier})
 end)
-
+--[[
 RegisterServerEvent("JailReleaseTime")
 AddEventHandler("JailReleaseTime", function()
 print("PLAYER "..source.."IS NOW RELEASED")
@@ -202,7 +204,7 @@ print("PLAYER "..source.."IS NOW RELEASED")
 	MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
 	MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
 end)
-
+]]--
 function stringsplit(inputstr, sep)
     if sep == nil then
         sep = "%s"

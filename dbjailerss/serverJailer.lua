@@ -172,9 +172,11 @@ print("TIME REMAINING="..newTime)
         if newTime == 0 then
             local player = source
 	    local identifier = GetPlayerIdentifiers(player)[1]
-	    local newID = "RELEASED=" .. identifier
-	    MySQL.Async.execute("UPDATE jail SET J_Time=@Time WHERE identifier=@identifier", {["@Time"] = 0, ['@identifier'] = identifier})
-	    MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	    --local newID = "RELEASED=" .. identifier
+		--local tempo = 0
+	    --MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
+	    --MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	    MySQL.Async.execute("DELETE FROM jail WHERE identifier=@identifier", {['@identifier'] = identifier})
         end
 end)
 
@@ -183,19 +185,24 @@ AddEventHandler("JailRelease", function(source)
 print("PLAYER "..source.."IS NOW RELEASED")
 	local player = source
 	local identifier = GetPlayerIdentifiers(player)[1]
-	local newID = "RELEASED=" .. identifier
-	MySQL.Async.execute("UPDATE jail SET J_Time=@Time WHERE identifier=@identifier", {["@Time"] = 0, ['@identifier'] = identifier})
-	MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	--local newID = "RELEASED=" .. identifier
+	--local tempo = 0
+	--MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
+	--MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
+	MySQL.Async.execute("DELETE FROM jail WHERE identifier=@identifier", {['@identifier'] = identifier})
 end)
+--[[
 RegisterServerEvent("JailReleaseTime")
-AddEventHandler("JailRelease", function()
+AddEventHandler("JailReleaseTime", function()
 print("PLAYER "..source.."IS NOW RELEASED")
 	local player = source
 	local identifier = GetPlayerIdentifiers(player)[1]
 	local newID = "RELEASED=" .. identifier
-	MySQL.Async.execute("UPDATE jail SET J_Time=@Time WHERE identifier=@identifier", {["@Time"] = 0, ['@identifier'] = identifier})
+	local tempo = 0
+	MySQL.Async.execute("UPDATE jail SET J_Time=@TIME WHERE identifier=@identifier", {["@TIME"] = tempo, ['@identifier'] = identifier})
 	MySQL.Async.execute("UPDATE jail SET identifier=@ID WHERE identifier=@identifier", {["@ID"] = newID, ['@identifier'] = identifier})
 end)
+]]--
 
 function stringsplit(inputstr, sep)
     if sep == nil then
